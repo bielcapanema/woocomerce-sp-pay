@@ -30,4 +30,12 @@ class PagarMe_Transaction extends PagarMe_TransactionCommon {
 			$response = $request->run();
 			$this->refresh($response);
 	}
+
+	public function payboleto()
+	{
+		$request = new PagarMe_Request(self::getUrl().'/'.$this->id, 'PUT');
+		$request->setParameters(array( "api_key" => PagarMe::getApiKey(), "status" => "paid"));
+		$response = $request->run();
+		$this->refresh($response);
+	}
 }

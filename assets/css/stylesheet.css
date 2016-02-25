@@ -1,3 +1,51 @@
+.refound_products_list{
+
+    box-shadow: 0 0 3px #ccc;
+}
+.refound_products_list td{
+    padding-left:10px;
+}
+.ui-state-error{
+    border: 1px solid #f16f67 !important;
+    background: #fddfdf !important;
+    color: #5f252b !important;
+}
+.ui-dialog{
+    min-height: 400px !important;
+    width: 50% !important;
+    min-width: 360px !important;
+    height: 50% !important;
+}
+.ui-dialog-content{
+    height: 75% !important;
+    min-height: 280px !important;
+    width: 100% !important;
+    min-width: 350px !important;
+}
+
+.refound-button-credit, .refound-button-boleto{
+    color: #fff !important;
+    background-color: #3B6DF7 !important;
+    position: relative;
+    color: rgba(255,255,255,1);
+    text-decoration: none;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 700;
+    font-size: 27px;
+    display: block;
+    padding: 10px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 30px !important;
+    border: 6px solid #E6E6E6 !important;
+    width: 200px;
+    text-align: center;
+}
+
+.refound-button-credit:hover, .refound-button-boleto:hover{
+    background: #0063CC !important
+}
+
 
 .woocommerce-error{
     color: red;
@@ -11,33 +59,76 @@
     position: relative;
     color: rgba(255,255,255,1);
     text-decoration: none;
-    background-color: green;
-    font-family: 'Yanone Kaffeesatz';
+    background-color: #26C57E;
+    font-family: 'Raleway', sans-serif;
     font-weight: 700;
-    font-size: 3em;
+    font-size: 50px;
     display: block;
-    padding: 4px;
-    -webkit-border-radius: 8px;
-    -moz-border-radius: 8px;
-    border-radius: 8px;
-    -webkit-box-shadow: 0px 9px 0px #005000, 0px 9px 25px rgba(0,0,0,.7);
-    -moz-box-shadow: 0px 9px 0px #005000, 0px 9px 25px rgba(0,0,0,.7);
-    box-shadow: 0px 9px 0px #005000, 0px 9px 25px rgba(0,0,0,.7);
+    padding: 10px;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 6px;
+    border: 0 none;
+   /* -webkit-box-shadow: 0px 9px 0px #26C57E, 0px 9px 25px rgba(0,0,0,.7);
+    -moz-box-shadow: 0px 9px 0px #26C57E, 0px 9px 25px rgba(0,0,0,.7);
+    box-shadow: 0px 9px 0px #26C57E, 0px 9px 25px rgba(0,0,0,.7);*/
     margin: 100px auto;
-    width: 200px;
+    width: 400px;
     text-align: center;
-
+    /*
     -webkit-transition: all .1s ease;
     -moz-transition: all .1s ease;
     -ms-transition: all .1s ease;
     -o-transition: all .1s ease;
-    transition: all .1s ease;
+    transition: all .1s ease;*/
 }
 
-.button-pagarme:active {
-    -webkit-box-shadow: 0px 3px 0px #005000, 0px 3px 6px rgba(0,0,0,.9);
-    -moz-box-shadow: 0px 3px 0px #005000, 0px 3px 6px rgba(0,0,0,.9);
-    box-shadow: 0px 3px 0px #005000, 0px 3px 6px rgba(0,0,0,.9);
+.button-pagarme:active, .button-pagarme:hover {
+   /* -webkit-box-shadow: 0px 3px 0px #26C57E, 0px 3px 6px rgba(0,0,0,.9);
+    -moz-box-shadow: 0px 3px 0px #26C57E, 0px 3px 6px rgba(0,0,0,.9);
+    box-shadow: 0px 3px 0px #26C57E, 0px 3px 6px rgba(0,0,0,.9);
     position: relative;
-    top: 6px;
+    top: 6px;*/
+    background-color: #46CE91;
+}
+
+.button-boleto {
+    position: relative;
+    color: rgba(255,255,255,1);
+    text-decoration: none;
+    background-color: #26C57E;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 700;
+    font-size: 27px;
+    display: block;
+    padding: 10px;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 6px;
+    border: 0 none;
+    /* -webkit-box-shadow: 0px 9px 0px #26C57E, 0px 9px 25px rgba(0,0,0,.7);
+     -moz-box-shadow: 0px 9px 0px #26C57E, 0px 9px 25px rgba(0,0,0,.7);
+     box-shadow: 0px 9px 0px #26C57E, 0px 9px 25px rgba(0,0,0,.7);*/
+    margin: 30px auto;
+    width: 400px;
+    text-align: center;
+    /*
+    -webkit-transition: all .1s ease;
+    -moz-transition: all .1s ease;
+    -ms-transition: all .1s ease;
+    -o-transition: all .1s ease;
+    transition: all .1s ease;*/
+}
+
+.button-boleto:active, .button-boleto:hover {
+    /* -webkit-box-shadow: 0px 3px 0px #26C57E, 0px 3px 6px rgba(0,0,0,.9);
+     -moz-box-shadow: 0px 3px 0px #26C57E, 0px 3px 6px rgba(0,0,0,.9);
+     box-shadow: 0px 3px 0px #26C57E, 0px 3px 6px rgba(0,0,0,.9);
+     position: relative;
+     top: 6px;*/
+    background-color: #46CE91;
+}
+
+.button-boleto a{
+    color: #fff !important;
 }

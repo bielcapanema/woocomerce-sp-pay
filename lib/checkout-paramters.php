@@ -26,6 +26,6 @@ function format_first_name($name){
 }
 
 function format_last_name($name){
-    $pieces = explode(' ', $name);
+    $pieces = explode(' ', trim($name));
     return array_pop($pieces);
 }
