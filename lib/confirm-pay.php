@@ -7,7 +7,6 @@ require_once ABSPATH. 'wp-content/plugins/sp-pay/assets/vendor/pagarme/Pagarme.p
 require_once dirname(__FILE__).'/integration-RDStation.php';
 require_once dirname(__FILE__).'/checkout-paramters.php';
 
-
 if(!$_POST['fingerprint'])
     return;
 
@@ -28,7 +27,7 @@ if (Pagarme::validateFingerprint($_POST['id'], $_POST['fingerprint'])) {
         $phone = format_phone($this_transaction->phone->ddd, $this_transaction->phone->number);
         $data_array = array('email' => $email, 'name' => $this_transaction->customer->name, 'telefone' => $phone, 'estado' => $this_transaction->address->state, 'cidade' => $this_transaction->address->city);
         //NIVEIS DE ACESSO
-        $capability = get_post_meta($product['product_id'], 'package')[0];
+        $capabilities = list_capabilities(get_post_meta($product['product_id'], 'package')[0]);
         $opm_level = get_post_meta($product['product_id'], 'opm_level')[0];
 
         //PROCESSOS
@@ -48,9 +47,9 @@ if (Pagarme::validateFingerprint($_POST['id'], $_POST['fingerprint'])) {
                     $_POST['email'] = $email;
                     addUserToOpm(null);
                 }
-                if($capability){
+                foreach($capabilities as $capability){
                     $user = get_user_by('email', $email);
-                    $user->add_cap('access_optimizemember_ccap_'.$capability);
+                    $user->add_cap('access_optimizemember_ccap_'.trim($capability));
                 }
                 addLeadConversionToRdstationCrm($token_rdstation, $identifier.'_INSCRICAO', $data_array);
                 add_post_meta($this_transaction->metadata->order_id, 'metodo_pagamento', $this_transaction->payment_method);
@@ -63,13 +62,12 @@ if (Pagarme::validateFingerprint($_POST['id'], $_POST['fingerprint'])) {
        }elseif ($this_transaction['status'] == 'refunded') {
             $user = get_user_by('email', $email);
 
-            if($capability) {
-                $user->remove_cap('access_optimizemember_ccap_'.$capability);
+            foreach($capabilities as $capability) {
+                $user->remove_cap('access_optimizemember_ccap_'.trim($capability));
             }
             if($opm_level) {
                 $level = (int)$opm_level-1;
                 $user->remove_cap('optimizemember_level'.$opm_level);
-                $user->add_cap('optimizemember_level'.$level);
             }
 
             wc_order_fully_refunded($this_transaction->metadata->order_id);

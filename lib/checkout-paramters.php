@@ -29,3 +29,8 @@ function format_last_name($name){
     $pieces = explode(' ', trim($name));
     return array_pop($pieces);
 }
+
+function list_capabilities($capabilities){
+    $pieces = explode(',', trim($capabilities));
+    return $pieces;
+}

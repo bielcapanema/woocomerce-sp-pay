@@ -5,6 +5,7 @@ require_once ABSPATH. 'wp-content/plugins/sp-pay/assets/vendor/pagarme/Pagarme.p
 require_once ABSPATH. 'wp-content/plugins/sp-pay/assets/vendor/pagarme/lib/Pagarme/Bank_Account.php';
 require_once ABSPATH . 'wp-config.php';
 
+try {
 $pagarme_gateway = new WC_Pagarme_Gateway();
 Pagarme::setApiKey($pagarme_gateway->api_key);
 
@@ -14,7 +15,7 @@ $pagarme_id = get_post_meta($order->id, '_wc_pagarme_transaction_id')[0];
 
 $transaction = PagarMe_Transaction::findById($pagarme_id);
 
-try {
+
     if ($transaction->status == 'paid') {
         if($payment_method == 'credit_card') {
             $transaction->refund();
@@ -35,7 +36,7 @@ try {
         }else{
             throw new Exception('Tente novamente, se o erro persistir entre em contato.');
         }
-        wc_add_notice('Pedido de estorno feito com sucesso, aguarde.', 'success' );
+        wc_add_notice('Pedido de estorno feito com sucesso.', 'success' );
         wc_order_fully_refunded($_POST['order_id']);
         $order->update_status('refunded');
     } else {

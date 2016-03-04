@@ -48,7 +48,7 @@ jQuery(function() {
 
         valid = valid && checkLength( bank_code, "código do banco", 3, 3 );
         valid = valid && checkLength( agencia, "agência", 4, 4 );
-        valid = valid && checkLength( conta, "conta", 5, 5 );
+        valid = valid && checkLength( conta, "conta", 2, 12 );
         valid = valid && checkLength( document_number, "CPF ou CNPJ", 10, 14 );
         valid = valid && checkLength( legal_name, "nome ou razão social", 5, 40);
 
@@ -60,11 +60,19 @@ jQuery(function() {
 
         return valid;
     }
+    var dHeight = jQuery(window).height() * 0.8;
+    var dWidth = jQuery(window).width() * 0.6;
+
 
     dialog1 = jQuery( "#dialog-form-credit" ).dialog({
         autoOpen: false,
-        height: 300,
-        width: 350,
+        resizable: false,
+        closeOnEscape: true,
+        stack: true,
+        zIndex: 10000,
+        minHeight: 400,
+        minWidth: 360,
+        width: dWidth,
         modal: true,
         buttons: {
             'Cancelar': function() {
@@ -78,8 +86,14 @@ jQuery(function() {
 
     dialog2 = jQuery( "#dialog-form-boleto" ).dialog({
         autoOpen: false,
-        height: 300,
-        width: 350,
+        resizable: false,
+        closeOnEscape: true,
+        stack: true,
+        zIndex: 10000,
+        height: dHeight,
+        minHeight: 400,
+        minWidth: 360,
+        width: dWidth,
         modal: true,
         buttons: {
             'Cancelar': function() {

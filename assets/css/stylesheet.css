@@ -10,19 +10,23 @@
     background: #fddfdf !important;
     color: #5f252b !important;
 }
-.ui-dialog{
-    min-height: 400px !important;
-    width: 50% !important;
-    min-width: 360px !important;
-    height: 50% !important;
-}
-.ui-dialog-content{
-    height: 75% !important;
-    min-height: 280px !important;
-    width: 100% !important;
-    min-width: 350px !important;
-}
 
+.refound-button-expired{
+    position: relative;
+    color: rgba(0, 0, 0, 0.53) !important;
+    text-decoration: none;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 700 !important;
+    font-size: 14px !important;
+    display: block;
+    padding: 10px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 30px !important;
+    border: 6px solid #E6E6E6 !important;
+    width: auto;
+    text-align: center;
+}
 .refound-button-credit, .refound-button-boleto{
     color: #fff !important;
     background-color: #3B6DF7 !important;
@@ -30,15 +34,15 @@
     color: rgba(255,255,255,1);
     text-decoration: none;
     font-family: 'Raleway', sans-serif;
-    font-weight: 700;
-    font-size: 27px;
+    font-weight: 700 !important;
+    font-size: 15px !important;
     display: block;
     padding: 10px;
     -webkit-border-radius: 20px;
     -moz-border-radius: 20px;
     border-radius: 30px !important;
     border: 6px solid #E6E6E6 !important;
-    width: 200px;
+    width: auto;
     text-align: center;
 }
 

@@ -173,7 +173,7 @@ function sp_pay_shortcode_refound($attrs){
                       <input type="text" name="conta_dv" id="conta_dv" value="" class="text ui-widget-content ui-corner-all">
                       <label for="document_number">CPF ou CNPJ</label>
                       <input type="text" name="document_number" id="document_number" value="" class="text ui-widget-content ui-corner-all">
-                      <label for="legal_name">Nome ou Razão social do favorecido</label>
+                      <label for="legal_name">Nome ou Razão social do dono da conta</label>
                       <input type="text" name="legal_name" id="legal_name" value="" class="text ui-widget-content ui-corner-all">
                       <input type="hidden" name="order_id" id="order_id" />
                       <input type="hidden" name="_wp_http_referer" id="_wp_http_referer" />
@@ -210,10 +210,7 @@ function sp_pay_shortcode_refound($attrs){
             }
             $product_list = substr($product_list, 0, -1);
             $payment_method = get_post_meta($order->ID, 'metodo_pagamento', true);
-
-            add_post_meta($order->ID, 'order_payment_date', date('d/m/Y'));
             $order_payment_date = DateTime::createFromFormat('d/m/Y', get_post_meta($order->ID, 'order_payment_date', true));
-
             $data_atual = new DateTime();
             $diferenca = $order_payment_date->diff($data_atual)->days;
 
@@ -227,7 +224,7 @@ function sp_pay_shortcode_refound($attrs){
             } elseif($payment_method == 'boleto') {
                 $content .= '<tr><td><p>' . $product_list . '</p></td>';
                 if($diferenca > 30) {
-                    $content .= '<td></td>';
+                    $content .= '<td><button class="refound-button-expired uf_epicoepico_author-button">Periodo de reembolso expirado</button></td>';
                 }else{
                     $content .= '<td><button class="refound-button-boleto uf_epicoepico_author-button" data-order_id=' . $order->ID . ' data-wp_http_referer=' . $url_refererer . '>REEMBOLSO</button></td>';
                 }
