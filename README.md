@@ -48,24 +48,24 @@
 >>para realizar um estorno manual de um pagamento bastar entrar em sua conta Pagar.me e acessar: > Menu > Transações: no final da pagina identificar a transação e com um click abrir os dados da transação, no lado superior direito clicar no botão “ Estornar” e todo o processo de estorno será realizado, tirando o acesso do comprador do produto e enviando um post para o RD Station com o identificador do produto concatenado com “_ESTORNADO”.
 
 >>se você possuir uma página de obrigado após a compra diferente é necessário adicionar o seguinte js nela para exibição de um botão para pegar o boleto:
-    <script>
-    function getParameterByName(name, url) {
-        if (!url) url = window.location.href;
-        name = name.replace(/[\[\]]/g, "\\$&");
-        var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
-            results = regex.exec(url);
-        if (!results) return null;
-        if (!results[2]) return '';
-        return decodeURIComponent(results[2].replace(/\+/g, " "));
-    }
-
-    if(getParameterByName('url_boleto')){
-      var btn = document.createElement("BUTTON");
-      var t = document.createTextNode("CLICK ME");
-      btn.appendChild(t);
-      document.getElementById("le_body_row_2_col_1_el_1").appendChild(btn);
-    }
-    </script>
+  >  <script>
+  >  function getParameterByName(name, url) {
+  >      if (!url) url = window.location.href;
+  >      name = name.replace(/[\[\]]/g, "\\$&");
+  >      var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+  >          results = regex.exec(url);
+  >      if (!results) return null;
+  >      if (!results[2]) return '';
+  >      return decodeURIComponent(results[2].replace(/\+/g, " "));
+  >  }
+  >
+  >  if(getParameterByName('url_boleto')){
+  >    var btn = document.createElement("BUTTON");
+  >    var t = document.createTextNode("CLICK ME");
+  >    btn.appendChild(t);
+  >    document.getElementById("le_body_row_2_col_1_el_1").appendChild(btn);
+  >  }
+  >  </script>
 
 >>O sistema de estorno funciona adicionando o shortcode [sp-pay-refound] que exbirá uma tabela com os cursos do usuário e um botão de reembolso para cada curso se o curso tiver sido comprado dentro de um período de 30 dias.
 
